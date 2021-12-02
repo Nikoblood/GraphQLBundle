@@ -22,7 +22,7 @@ jobs:
           - '8.1'
         symfony-version:
           - '4.4'
-          - '5.3'
+          - '5.4'
         dependencies:
           - 'lowest'
           - 'highest'
@@ -30,11 +30,11 @@ jobs:
         coverage: [ 'none' ]
         include:
           - php-version: '8.0'
-            symfony-version: '5.3'
+            symfony-version: '5.4'
             dependencies: 'lowest'
             remove-dependencies: '--dev symfony/validator doctrine/orm doctrine/annotations'
           - php-version: '8.0'
-            symfony-version: '5.3'
+            symfony-version: '5.4'
             dependencies: 'lowest'
             coverage: "pcov"
     steps:
