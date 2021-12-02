@@ -50,9 +50,9 @@
         "doctrine/annotations": "^1.13",
         "doctrine/orm": "^2.5",
         "phpstan/extension-installer": "^1.0",
-        "phpstan/phpstan": "^0.12.58",
-        "phpstan/phpstan-phpunit": "^0.12.11",
-        "phpstan/phpstan-symfony": "^0.12.6",
+        "phpstan/phpstan": "^1.2",
+        "phpstan/phpstan-phpunit": "^1.0",
+        "phpstan/phpstan-symfony": "^1.0",
         "phpunit/phpunit": "^9.5",
         "react/promise": "^2.5",
         "symfony/asset": "^4.4 || ^5.3",
@@ -80,9 +80,8 @@
     },
     "scripts": {
         "test": "bin/phpunit --color=always --coverage-clover=build/logs/clover.xml",
-        "static-analysis": [
-            "phpstan analyse --ansi --memory-limit=1G"
-        ],
+        "static-analysis-php-7.4": "phpstan analyse --ansi --memory-limit=1G --configuration=phpstan-php-7.4.neon",
+        "static-analysis": "phpstan analyse --ansi --memory-limit=1G",
         "bench": [
             "test -f phpbench.phar || wget https://github.com/phpbench/phpbench/releases/download/1.0.0-alpha7/phpbench.phar -O phpbench.phar",
             "@php phpbench.phar run -l dots --ansi -vvv --report='generator: \"table\", cols: [\"benchmark\", \"subject\", \"params\", \"best\", \"mean\", \"mode\", \"worst\", \"diff\"], break: [\"benchmark\"], sort: {mean: \"asc\"}'"

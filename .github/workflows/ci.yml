@@ -73,7 +73,11 @@ jobs:
         run: composer test
 
       - name: "Run static-analysis"
-        if: "matrix.static-analysis == 'phpstan'"
+        if: "matrix.static-analysis == 'phpstan' && matrix.php-version == '7.4'"
+        run: composer static-analysis-php-7.4
+
+      - name: "Run static-analysis"
+        if: "matrix.static-analysis == 'phpstan' && matrix.php-version != '7.4'"
         run: composer static-analysis
 
       - name: "Upload coverage results to Coveralls"
